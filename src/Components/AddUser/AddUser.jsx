@@ -29,7 +29,7 @@ const AddUsers = () => {
         const day = form.day.value;
         const newUsers = {day, title, formattedDate, formatHour};
         console.log(newUsers);
-        fetch('http://localhost:5000/users',{
+        fetch('https://new-user-server-two.vercel.app/users',{
             method: "POST",
             headers:{
                 "content-type": "application/json",

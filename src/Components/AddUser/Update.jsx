@@ -32,7 +32,7 @@ const Update = () => {
             formattedDate: formattedDate,
             isCompleted: false,
         }
-        fetch(`http://localhost:5000/users/${id}`,{
+        fetch(`https://new-user-server-two.vercel.app/users/${id}`,{
             method: "PATCH", 
             headers:{
                 "content-type":"application/json"

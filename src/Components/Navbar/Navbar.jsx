@@ -5,10 +5,11 @@ const Navbar = () => {
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/addusers'}>add User</NavLink>
         <NavLink to={'/showusers'}>showUser</NavLink>
-        <NavLink to={'/'}>login</NavLink>
+        <NavLink to={'/signIn'}>login</NavLink>
+        <NavLink to={'/Users'}>Users</NavLink>
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

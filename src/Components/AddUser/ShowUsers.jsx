@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ShowUser from "../ShowUser/ShowUser";
 
 const ShowUsers = () => {
     const loaderUser = useLoaderData()
     const [user, setUser] = useState(loaderUser)
+    const [search , setSearch]= useState("")
+
+    useEffect(()=>{
+        fetch(`https://new-user-server-two.vercel.app/users/?sherchprams=${search}`)
+        .then(res=> res.json())
+        .then(data =>{
+            setUser(data);
+        })
+    },[search])
     return (
         <>
             <div className="w-[400px] mx-auto mb-4">
                 <input
-                    // onChange={(e) => setSearch(e.target.value)}
+                    onChange={(e) => setSearch(e.target.value)}
                     type="text"
                     name="search"
                     placeholder="search"

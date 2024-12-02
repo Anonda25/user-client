@@ -8,26 +8,26 @@ const ShowUser = ({ use, ind, setUser, user }) => {
     const { _id, title, day, formattedDate, formatHour, isCompleted } = use;
 
     const handelDelete = (id) => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://new-user-server-two.vercel.app/users/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                Swal.fire('Data DELETE')
                 const remainder = user.filter(use => use._id !== id)
                 setUser(remainder)
             })
     }
     const handleStatus = (id) => {
-        fetch(`http://localhost:5000/status/${id}`, {
+        fetch(`https://new-user-server-two.vercel.app/status/${id}`, {
             method: "PATCH"
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                const newData = use.map((mp) => mp._id === id ? { ...use, isCompleted: true } : use)
-                Swal.fire('❤️❤️Status Update❤️❤️')
+                //new arrar convert like a object
+                const newData = user.map(ues => ues._id === id ? { ...ues, isCompleted:true }: ues)
+                setUser(newData)
             })
     }
 
